@@ -62,7 +62,7 @@ public class ReflectTest {
         Method getMethod = student.getDeclaredMethod("getAge");
         Object age =getMethod.invoke(instance);
         System.out.println(age);
-        //设置某个字段的值
+        //设置某个字段的值都是
         setFiledValue(instance,"teacherName","无良");
         System.out.println("teacherName："+instance.getTeacherName());
     }
