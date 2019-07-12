@@ -5,6 +5,11 @@ public class Student {
     private int age;
     protected String teacherName;
     public int sex;
+    //public final String school = "天津";
+    public final static String school = new String("天津");
+    public String getSchool() {
+        return school;
+    }
 
     private Student(String name, int age , int sex, String teacherName){
         this.name = name;

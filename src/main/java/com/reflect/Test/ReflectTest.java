@@ -1,11 +1,10 @@
 package com.reflect.Test;
 
 import com.reflect.bean.Student;
-
-import java.awt.peer.SystemTrayPeer;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 
 /**
  * 测试反射代码打法
@@ -68,7 +67,44 @@ public class ReflectTest {
         //设置某个字段的值都是
         setFiledValue(instance,"teacherName","无良");
         System.out.println("teacherName："+instance.getTeacherName());
+        setFinalField();
     }
+
+    /**
+     * 测试，重置final类型的属性
+     *  final 与static 不可混为一谈，static 只是该类的字段在内存中只有一份（可以正常反射）
+     *
+     *  误区: 就是总以为加了 final 关键值，该属性就会被编译器内联优化，就不能用反射有效的进行修改。
+     *  通过今天的梳理终于清晰的明白了：final 属性，只要不是基本类型和字面 String，就可以正常使用反射修改它的值。
+     *  所以对于基本类型和字面 String, final 只是预示着它的值不能被正常的代码修改。
+     * @throws Exception
+     */
+    public static void setFinalField() throws Exception {
+        Student student = new Student();
+        Class c = student.getClass();
+        System.out.println("==================重置常量属性==================");
+        System.out.println("school："+student.getSchool());
+        Field sFiled = c.getDeclaredField("school");
+        //直接开放 为true 无效
+//        sFiled.setAccessible(true);
+//        sFiled.set(student,"河阳");
+//        System.out.println("改变后访问权限后，school:"+student.getSchool());
+        Field modifier = Field.class.getDeclaredField("modifiers");
+        System.out.println("modifier:"+Modifier.toString(sFiled.getModifiers()));
+        modifier.setAccessible(true);
+        //需要更改final的限制
+        modifier.setInt(sFiled,sFiled.getModifiers()&~Modifier.FINAL);
+        sFiled.set(student,"越南");
+        Object val = sFiled.get(student);
+        System.out.println("直接利用反射获取school字段："+val);
+        /*
+          这里输出的还是没有改变的值
+          原因：因为JVM在编译时期, 就把final类型的String进行了优化, 在编译时期就会把String处理成常量，调用getSchool()时固定返回原有值
+          解决方案：public final String school = new String("天津")
+         */
+        System.out.println("改变后，school:"+student.getSchool());
+    }
+
 
     public static void getFiledValue(Object object , String fieldName){
         Class c = object.getClass();
