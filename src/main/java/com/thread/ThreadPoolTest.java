@@ -2,6 +2,8 @@ package com.thread;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 线程池测试
@@ -29,6 +31,17 @@ public class ThreadPoolTest {
                 }
             });
         }
+        //启动定时任务
+        ScheduledExecutorService service = Executors.newScheduledThreadPool(3);
+        //以固定频率运行任务
+        //service.scheduleAtFixedRate();
+        //延时运行任务
+        service.schedule(new Runnable() {
+            public void run() {
+
+            }
+        },2, TimeUnit.SECONDS);
+
         System.out.println("10 个任务以提交");
         //当线程池中没有任务后，关闭线程池
         //fixPool.shutdown();
