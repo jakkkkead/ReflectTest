@@ -1,5 +1,8 @@
 package com.sychronized;
 
+/**
+ * 线程互斥，用 synchronized 关键字控制
+ */
 public class SychronoziedTest {
     public static void main(String[] args) {
         SychronoziedTest sychronoziedTest = new SychronoziedTest();
@@ -18,12 +21,12 @@ public class SychronoziedTest {
             }
             new Thread(new Runnable() {
                 public void run() {
-                    outPut.outPut1("xiaoming");
+                    outPut.outPut2("xiaoming");
                 }
             }).start();
             new Thread(new Runnable() {
                 public void run() {
-                    outPut.outPut1("tinaioojwe");
+                    outPut.outPut2("tinaioojwe");
                 }
             }).start();
         }
@@ -56,9 +59,8 @@ public class SychronoziedTest {
                 for (int i= 0; i< name.length(); i++){
                     System.out.print(name.charAt(i));
                 }
+                System.out.println();
             }
-
-            System.out.println();
         }
 
        /**
