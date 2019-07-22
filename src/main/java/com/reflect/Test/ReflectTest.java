@@ -11,8 +11,15 @@ import java.lang.reflect.Modifier;
  */
 public class ReflectTest {
     public static void main(String[] args) throws Exception {
+        //字节码
         Class student = Student.class;
-
+        Student student1 = new Student();
+        Student student2 = new Student();
+        System.out.println("s1 == s2:"+(student1.getClass()==student2.getClass()));//true
+        //原生即8种基本类型
+        System.out.println("student是否是原生类型："+student.isPrimitive());
+        System.out.println("int == Integer:"+(int.class==Integer.class));
+        System.out.println("int == Integer.Type:"+(int.class==Integer.TYPE));
         Constructor[] constructors = student.getDeclaredConstructors();
         System.out.println("=========获取到的所有构造方法（不包括父类）===============");
         for (Constructor c : constructors){
