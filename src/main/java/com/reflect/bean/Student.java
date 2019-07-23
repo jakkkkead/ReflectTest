@@ -1,10 +1,13 @@
 package com.reflect.bean;
 
+import java.util.Date;
+
 public class Student {
     public String name;
     private int age;
     protected String teacherName;
     public int sex;
+    private Date date = new Date();
     //public final String school = "天津";
     public final static String school = new String("天津");
     public String getSchool() {
@@ -17,11 +20,16 @@ public class Student {
         this.age = age;
         this.sex = sex;
     }
-    private Student(String name){
+    public Student(String name){
         this.name = name;
     }
     public Student(){
 
+    }
+
+    @Override
+    public String toString() {
+       return "name:"+this.name+",techarcerName:"+teacherName+",age:"+age;
     }
 
     public void setName(String name) {
@@ -40,7 +48,7 @@ public class Student {
         this.sex = sex;
     }
 
-    private String getName() {
+    public String getName() {
         return name;
     }
 
@@ -56,7 +64,11 @@ public class Student {
         return sex;
     }
 
+    public Date getDate() {
+        return date;
+    }
 
-
-
+    public void setDate(Date date) {
+        this.date = date;
+    }
 }
