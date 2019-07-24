@@ -30,6 +30,10 @@ public class GenericityTest {
        // swap(a2,0,1);
         //不能使用泛型数组
      //   Vector<String>[] vector = new Vector<String>[10];
+        GenerityDao<String> dao = new GenerityDao<String>();
+        String d = dao.getDataById("dkf");
+
+
 
     }
     public static <T>void swap(T[]base , int i , int j){
