@@ -7,5 +7,11 @@ spring:
     password: KhdMcoXgGDRvpJVd
     url: jdbc:mysql://10.18.78.57:3306/wxtest?useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&zeroDateTimeBehavior=convertToNull
     driver-class-name: com.mysql.jdbc.Driver
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: admin
+    password: admin
+    pool:
+      enabled: false
 mybatis:
   mapper-locations: classpath:mapping/*.xml

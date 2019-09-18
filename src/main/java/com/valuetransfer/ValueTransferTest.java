@@ -18,9 +18,10 @@ public class ValueTransferTest {
     }
     public static void handlerObj(List<String> list){
         List<String> test = new ArrayList<String>();
+        test = list;
         test.add("星座书上");
         // list 的 引用指向了另一个 存储单元，但是对于调用者来说无影响
-        list = test;
+
         System.out.println("方法中的list"+list);
     }
 }
