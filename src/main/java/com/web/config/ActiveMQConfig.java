@@ -13,7 +13,7 @@ import javax.jms.ConnectionFactory;
 import javax.jms.Queue;
 import javax.jms.Topic;
 
-@Configuration
+//@Configuration
 public class ActiveMQConfig {
     public final static String TOPIC = "springboot.topic.test";
     public final static String QUEUE = "springboot.queue.test";

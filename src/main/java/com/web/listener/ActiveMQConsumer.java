@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
-@Component
+//@Component
 public class ActiveMQConsumer {
     @JmsListener(destination = ActiveMQConfig.QUEUE,containerFactory = "jmsListenerContainerQueue" )
     public void getQueueMessage(Map<String,String> message){

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 public class BusinessVersion {
     @Autowired
     public BusinessService businessService;
-    @Autowired
+    //@Autowired
     private ActiveMQService activeMQService;
     @GetMapping("version/{id}")
     public Object getVersion(@PathVariable int id){

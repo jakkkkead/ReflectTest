@@ -2,6 +2,8 @@ server:
   port: 8080
 
 spring:
+  application:
+    name: mypromethues
   datasource:
     username: root
     password: KhdMcoXgGDRvpJVd
@@ -13,5 +15,29 @@ spring:
     password: admin
     pool:
       enabled: false
+  metrics:
+    servo:
+      enabled: false
 mybatis:
   mapper-locations: classpath:mapping/*.xml
+management:
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+        step: 1m
+        descriptions: true
+    tags:
+      application: ${spring.application.name}
+  web:
+    server:
+      auto-time-requests: true
+  endpoints:
+    prometheus:
+      id: springmetrics
+      #对于 Prometheus 来说，Spring Boot Actuator 会自动配置一个 URL 为 /actuator/Prometheus 的 HTTP 服务来供 Prometheus 抓取数据。
+      #不过该 Actuator 服务默认是关闭的，需要通过 Spring Boot 的配置打开
+    web:
+      exposure:
+        include: health,info,env,prometheus,metrics,httptrace,threaddump,heapdump,springmetrics
+

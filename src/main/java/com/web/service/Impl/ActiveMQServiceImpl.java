@@ -10,7 +10,7 @@ import javax.jms.Topic;
 import java.util.HashMap;
 import java.util.Map;
 
-@Service
+//@Service
 public class ActiveMQServiceImpl implements ActiveMQService {
     @Autowired
     private JmsMessagingTemplate jms;
