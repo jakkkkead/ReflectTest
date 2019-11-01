@@ -16,6 +16,13 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ *与promethues结合，四大数据类型
+ * count：统计值，只能增加
+ * gauge：可增可减
+ * summary
+ *
+ */
 @RestController
 @RequestMapping("pro")
 public class PrometheusController {
