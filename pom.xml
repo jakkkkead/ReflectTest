@@ -84,61 +84,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <!-- prometheus -->
-        <!--<dependency>-->
-            <!--<groupId>io.prometheus</groupId>-->
-            <!--<artifactId>simpleclient</artifactId>-->
-            <!--<version>0.8.0</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>io.prometheus</groupId>-->
-            <!--<artifactId>simpleclient_hotspot</artifactId>-->
-            <!--<version>0.8.0</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>io.prometheus</groupId>-->
-            <!--<artifactId>simpleclient_servlet</artifactId>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>io.prometheus</groupId>-->
-            <!--<artifactId>simpleclient_hotspot</artifactId>-->
-            <!--<version>0.4.0</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>io.prometheus</groupId>-->
-            <!--<artifactId>simpleclient_spring_boot</artifactId>-->
-            <!--<version>0.4.0</version>-->
-        <!--</dependency>-->
-        <!--&lt;!&ndash; Exposition servlet &ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>io.prometheus</groupId>-->
-            <!--<artifactId>simpleclient_servlet</artifactId>-->
-            <!--<version>0.4.0</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>io.prometheus</groupId>-->
-            <!--<artifactId>simpleclient_spring_boot</artifactId>-->
-            <!--<version>0.0.26</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>io.prometheus</groupId>-->
-            <!--<artifactId>simpleclient_pushgateway</artifactId>-->
-            <!--<version>0.8.0</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>io.micrometer</groupId>-->
-            <!--<artifactId>micrometer-core</artifactId>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>io.micrometer</groupId>-->
-            <!--<artifactId>micrometer-registry-prometheus</artifactId>-->
-            <!--<version>1.0.6</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>io.prometheus</groupId>-->
-            <!--<artifactId>simpleclient_spring_boot</artifactId>-->
-            <!--<version>0.0.26</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-prometheus</artifactId>
