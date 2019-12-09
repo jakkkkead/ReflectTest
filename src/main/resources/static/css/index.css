@@ -1,0 +1,23 @@
+.hover_show{
+	display: inline-block;
+	position: relative;
+}
+.hover_menu{
+	position: absolute;
+	left:50px;
+	display: none;
+}
+.hover_show:hover .hover_menu{
+	display: block;
+}
+.show_body{
+	position: fixed;
+	left: 310px;
+	top:100px;
+	z-index: 2;
+	text-align: center;
+}
+.hover_menu_detail{
+	height: 40px;
+	margin-top: 20px;
+}

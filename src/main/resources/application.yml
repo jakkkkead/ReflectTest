@@ -2,27 +2,41 @@ server:
   port: 8080
 
 spring:
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static/
+  thymeleaf:
+    #模板的模式，支持 HTML, XML TEXT JAVASCRIPT
+    mode: HTML5
+    #编码 可不用配置
+    encoding: UTF-8
+    #开发配置为false,避免修改模板还要重启服务器
+    cache: false
+    #配置模板路径，默认是templates，可以不用配置
+    prefix: classpath:/templates/
+    suffix: .html
   application:
     name: mypromethues
   datasource:
     username: root
-    password: KhdMcoXgGDRvpJVd
-    url: jdbc:mysql://10.18.78.57:3306/wxtest?useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&zeroDateTimeBehavior=convertToNull
+    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
     driver-class-name: com.mysql.jdbc.Driver
-  activemq:
-    broker-url: tcp://localhost:61616
-    user: admin
-    password: admin
-    pool:
-      enabled: false
+#  activemq:
+#    broker-url: tcp://localhost:61616
+#    user: admin
+#    password: admin
+#    pool:
+#      enabled: false
   metrics:
     servo:
       enabled: false
   redis:
-    host: 127.0.0.1
+    host: 192.168.88.128
     port: 6379
 redisson:
-  address: redis://127.0.0.1:6379
+  address: redis://192.168.88.128:6379
 mybatis:
   mapper-locations: classpath:mapping/*.xml
 management:

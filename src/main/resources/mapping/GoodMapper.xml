@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.dao.GoodDao">
+    <resultMap id="baseGoodMap" type="com.web.bean.Good">
+        <result column="good_name" property="goodName"></result>
+        <result column="good_id" property="goodId"></result>
+        <result column="good_type" property="goodType"></result>
+        <result column="good_sale" property="goodSale"></result>
+        <result column="good_mark" property="goodMark"></result>
+        <result column="create_time" property="createTime"></result>
+    </resultMap>
+    <select id="getVersion" resultType="java.lang.Integer">
+       select version from t_tenant_businesstime_map
+        where id = #{id}
+    </select>
+    <insert id="add" parameterType="com.web.bean.Good">
+        insert into t_good (good_name,good_type,good_sale,good_mark,good_tenant_id,create_time)
+        values (#{goodName},#{goodType},#{goodSale},#{goodMark},#{goodTenantId},#{createTime})
+    </insert>
+    <select id="listGood" parameterType="com.web.bean.PageInfo" resultMap="baseGoodMap">
+        select good_name,good_id,good_type,good_sale,good_mark,create_time from t_good limit ${pageNumber},${pageSize}
+    </select>
+    <select id="getTotal" resultType="java.lang.Integer">
+        select count(*) from t_good
+    </select>
+    <select id="getDataByDate" resultType="java.util.HashMap">
+        select good_name,good_id,good_type,good_sale,good_mark,
+        DATE_FORMAT(create_time,'%Y-%m-%d') create_time from t_good
+        where
+        create_time &gt; #{start} and create_time &lt; #{end}
+    </select>
+</mapper>

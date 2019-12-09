@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css">
+        <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+		<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+		<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+		<script src="https://cdn.bootcss.com/moment.js/2.22.0/moment-with-locales.js"></script>
+		<script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+		<link rel="stylesheet" href="static/css/index.css" />
+	</head>
+	<body>
+		<div class="clearfix">
+		<div id="topdiv" style="position: fixed;width: 100%;top:0px;left:0px;">
+		
+			<nav id="topNav" class="navbar navbar-default">
+					<div id="icon" class="navbar-header pull-left">
+					
+					      <span class="glyphicon glyphicon-leaf" aria-hidden="true">后台管理系统</span>
+					</div>
+					<div id="detailNav" class="pull-right">
+						<ul class="nav nav-pills">
+						  <li role="presentation" class="dropdown">
+							  <a href="#" role="button" aria-hidden="true" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown">
+						  <span class="glyphicon glyphicon-shopping-cart" ></span>
+						   Home<span class="badge">4</span></a>
+						   <ul class="dropdown-menu">
+						               <li><a href="#">Action</a></li>
+						               <li><a href="#">Another action</a></li>
+						               <li><a href="#">Something else here</a></li>
+						               <li role="separator" class="divider"></li>
+						               <li><a href="#">Separated link</a></li>
+						               <li role="separator" class="divider"></li>
+						               <li><a href="#">One more separated link</a></li>
+						             </ul>
+						   </li>
+						  <li role="presentation"><a href="#">
+						  <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+						  Profile</a></li>
+						  <li role="presentation"><a href="#">
+						  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+						  Messages</a></li>
+						</ul>
+					</div>
+				
+			</nav>	
+		</div>
+		</div>
+		<div id="leftMenu" style="width: 20%; height:100%; border-top: 1px solid #CCC;" class="pull-left">
+			<div id="navmain" class="container-fluid">
+				<div class="row">
+					<ul class="nav nav-stacked">
+						<li role="presentation" ><a href="#home" role="tab" data-toggle="tab">
+						<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>表单</a></li>
+						<li role="presentation" ><a href="#profile" role="tab" data-toggle="tab">
+						<span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>表格</a></li>
+						<li role="presentation" ><a href="#messages" role="tab" data-toggle="tab">
+						<span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>轮播图</a></li>
+						<li role="presentation" ><a href="#search" role="tab" data-toggle="tab">
+						<span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>电商搜索</a></li>
+					<!-- 	<li role="presentation" >
+							<a href="#docCollapse" class="nav-header collapsed" data-toggle="collapse" id="collapseParent" onclick="chevron_toggle()">
+								<span class="glyphicon glyphicon-text-height" aria-hidden="true"></span>Bar 2<span class="pull-right glyphicon glyphicon-chevron-down"></span></a>
+								<ul id="docCollapse" class="nav nav-list collapse">
+								  <li><a href="#messages " role="tab" data-toggle="tab">
+								  <span class="glyphicon glyphicon-text-size" aria-hidden="true"></span>Child Bar 1</a></li>
+								  <li><a href="#settings" role="tab" data-toggle="tab">
+								  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>Child Bar 2</a></li>
+								</ul>
+						</li> -->
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="menuMes" class="pull-left container-fluid" style="width: 80%;" >
+		
+				<nav class="navbar navbar-default">
+					<div id="menuLeft" class="navbar-left">
+						<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+						<span>首页 > 控制台</span>
+					</div>
+					<div id="menuRight">
+						<form class="navbar-form navbar-right" role="search">
+						 
+						  	<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+						  								   <span class="glyphicon glyphicon-tags"></span>
+						  								  </button>
+						    <!-- Modal -->
+						    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+						      <div class="modal-dialog" role="document">
+						        <div class="modal-content">
+						          <div class="modal-header">
+						            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						            <h4 class="modal-title" id="myModalLabel">弹出框头</h4>
+						          </div>
+						          <div class="modal-body">
+						            模态主题
+						          </div>
+						          <div class="modal-footer">
+									  弹出框底部
+						            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						            <button type="button" class="btn btn-primary">Save changes</button>
+						          </div>
+						        </div>
+						      </div>
+						    </div>
+						  <div class="form-group">
+							 
+						       <input type="text" class="form-control" placeholder="Search">
+							
+						  </div>
+						  <button type="submit" class="btn btn-primary btn-sm">
+							   <span class="glyphicon glyphicon-search"></span>
+							  Submit</button>
+						</form>
+					</div>
+				</nav>
+		
+			
+		</div>
+		<div id="bodys" class="tab-content pull-left" >
+			<div role="tabpanel" class="tab-pane" id="home">
+				<div class="row">
+					<form id="addForm" class="form-horizontal" th:action="@{/good/add}" th:method="post">
+					  <div class="form-group">
+					    <label for="inputEmail3" class="col-sm-3 control-label">商品名</label>
+					    <div class="col-sm-4">
+					      <input type="text" name="goodName" class="form-control" id="inputEmail3" placeholder="商品名">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="inputPassword3" class="col-sm-3 control-label">租户id</label>
+					    <div class="col-sm-4">
+					      <input type="text" name="goodTenantId" class="form-control" id="inputPassword3" placeholder="商品类别">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="inputPassword3" class="col-sm-3 control-label">商品价格</label>
+					    <div class="col-sm-4">
+					      <input type="text" name="goodSale" class="form-control" id="inputPassword3" placeholder="商品类别">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="inputPassword3" class="col-sm-3 control-label">入库日期</label>
+					    <div class=' input-group date col-sm-4' id='datetimepicker1' >
+					    
+					                    <input name="createTime" type='text' class="form-control"style="margin-left: 15px;" />
+					    
+					                    <span class="input-group-addon " style="padding-left:29px;">
+					    
+					                        <span class="glyphicon glyphicon-calendar"></span>
+					    
+					                    </span>
+					    
+					                </div>
+					  </div>
+					  <div class="form-group">
+					    <label  class="col-sm-3 control-label">商户名称</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" name="" id="" placeholder="商户名称" />
+					    </div>
+						<div class="col-sm-1" id="toop" >
+							 <span data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 
+						</div>
+					  </div>
+					  <div class="form-group">
+					    <label  class="col-sm-3 control-label">类别</label>
+					  	<div class="col-sm-1">
+					  		<input type="radio"  name="goodType" class="" id="item1" value="1" />
+							<label title="" for="item1"></label>
+							<span class="">服装</span>
+					    </div>
+						<div class="col-sm-1">
+							
+							<input type="radio" name="goodType" class="" id="item2" value="2" />
+							<label title="" for="item2"></label>
+							<span>食品</span>
+						</div>
+						<div class="col-sm-1">
+							<input type="radio"  name="goodType" class="" id="item3" value="3" />
+							<label title="" for="item3"></label>
+							<span>生鲜</span>
+						</div>
+						<div class="col-sm-1">
+							<input type="radio"  name="goodType" class="" id="item4" value="4" />
+							<label title="" for="item4"></label>
+							<span>电子</span>
+						</div>
+						<div class="col-sm-2">
+							<input type="radio"  name="goodType" class="" id="item5" value="5" />
+							<label title="" for="item5"></label>
+							<span>生活家居</span>
+						</div>
+					  	
+					  </div>
+					  <div class="form-group">
+						<label  class="col-sm-3 control-label">品牌</label>  
+						<div class="col-sm-4">
+							<select class="form-control" name="goodMark">
+								<option value="森马">森马</option>
+								<option value="屈臣式">屈臣式</option>
+								<option value="法式">法式</option>
+								<option value="盼盼">盼盼</option>
+							</select>
+						</div>
+					  </div>
+					  <div class="form-group">
+					    <div class="col-sm-offset-3 col-sm-10">
+					      <button type="button" class="btn btn-primary" onclick="addGood()">提交</button>
+					    </div>
+					  </div>
+					</form>
+				</div>
+			</div>
+			
+			<div role="tabpanel" class="tab-pane " id="profile">
+				<!-- <div id="staticTable" >
+					<table class="table table-bordered table-hover table-striped">
+					   <thead>
+						   <tr>
+							   <th><input type="checkbox"/></th>
+							   <th>Domain</th>
+							   <th>Price</th>
+							   <th>	Clicks</th>
+							   <th> Update</th>
+							   <th>Status</th>
+							   <th></th>
+						   </tr>
+					   </thead>
+					   <tbody>
+					   	  <tr>
+							  <td><input type="checkbox"/></td>
+							  <td>x</td>
+							  <td>x</td>
+							  <td>x</td>
+							  <td>x</td>
+							  <td>x</td>
+							  <td>xxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+						  </tr>
+						  <tr>
+						  							  <td><input type="checkbox"/></td>
+						  							  <td>x</td>
+						  							  <td>x</td>
+						  							  <td>x</td>
+						  							  <td>x</td>
+						  							  <td>x</td>
+						  							  <td>xxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+						  </tr>
+						  <tr>
+						  							  <td><input type="checkbox"/></td>
+						  							  <td>x</td>
+						  							  <td>x</td>
+						  							  <td>x</td>
+						  							  <td>x</td>
+						  							  <td>x</td>
+						  							  <td>xxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+						  </tr>
+					   </tbody>
+					</table>
+				</div> -->
+			    <div>
+					<button type="button" onclick="initsTable()" class="btn btn-info">bootstrap插件表格</button>
+					<button type="button" onclick="delAll()" class="btn btn-danger">
+						<span class="glyphicon glyphicon-trash"></span>
+						批量删除
+					</button>
+				</div>
+				<div id="bootstrapTable">
+			    	<table id="myTable" class="table table-bordered table-hover table-striped">
+						<thead>
+												   <tr>
+													   <th><input type="checkbox"/></th>
+													   <th>商品id</th>
+													   <th>商品名称</th>
+													   <th>	商品类别</th>
+													   <th> 商品价格</th>
+													   <th>品牌</th>
+													   <th>入库时间</th>
+												   </tr>
+						</thead>
+					</table>
+			    </div>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="messages">
+				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="2000">
+				   <ol class="carousel-indicators">
+				       <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+				       <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+				       <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+				     </ol>
+					 <div class="carousel-inner " role="listbox">
+					     <div class="item active center-block">
+							 <div class="carousel-caption">
+							   主角
+							 </div>
+					       <img src="static/image/u=69828466,1848654465&fm=72.jpg" alt="...">
+					      
+					     </div>
+					     <div class="item center-block">
+							 <div class="carousel-caption">
+							   一户
+							 </div>
+					       <img src="static/image/u=469828811,1602589243&fm=72.jpg" alt="...">
+					      
+					     </div>
+						 <div class="item center-block">
+						   <img src="static/image/u=469828811,1602589243&fm=72.jpg" alt="...">
+						   <div class="carousel-caption">
+						       <h3>sdkfj</h3>
+						   </div>
+						 </div>
+					    
+					   </div>
+					   <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+					       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					       <span class="sr-only">Previous</span>
+					     </a>
+					     <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+					       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					       <span class="sr-only">Next</span>
+					     </a>
+				</div>
+				</div>
+			<div role="tabpanel" class="tab-pane active" id="search">
+				<div id="head" class="container-fluid">
+					<div class="row" >
+						<div class="col-md-2" style="padding-top:10px">稿定设计</div>
+						<div class="col-md-7"style="padding-top:10px">
+							<div class = "row">
+								<div class = "col-md-2">发现</div>
+								<div class = "col-md-2" style =" font-weight: 700;
+    color: #2254f4">模板中心</div>
+								<div class = "col-md-2">特色频道</div>
+								<div class = "col-md-2">专题</div>
+								<div class = "col-md-2">更多</div>
+								<div class = "col-md-2">全部工具</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<button type="button" class="btn btn-primary">一分钟介绍</button>
+						</div>
+					
+					</div>
+				</div>
+				<div id="searchMain" class="container-fluid">
+					<div class="row" style="margin-top:5%;padding-bottom:-20px">
+						<div class="col-md-8 col-md-offset-1" style="padding-right:0px;height:50px">
+							<span id="camare" class="glyphicon glyphicon-camera"></span>
+							<form>
+								<div class="form-group">
+										<input type="text" class="form-control" id="searchContext" name="searchContext" style="height:46px" placeholder="商品名称 类别 品牌" >
+								</div>
+							</form>
+						</div>
+						<div class="col-md-3 " style="padding-left:0px">
+							<button type="button" class="btn btn-primary btn-lg" onclick="search()">搜索</button>
+						</div>
+					</div>
+					<div  class="row">
+						<div class="col-md-8 col-md-offset-1"style="margin-bottom:20px" >
+							<span>热门搜索</span>
+							<span>招聘</span>
+							<span>海报</span>
+						</div>
+					</div>
+				</div>	
+				<div id="tips" style="margin-top:2%;margin-left:1%">
+					<span>全部模板</span>
+				</div>
+				<hr style="border:1px solid #CCC">
+				<div id="selectPart" class="container-fluid">
+					<div class = "row divheight">
+						<div class="hover_show">
+							<span class="col-md-1 typeWidth">服装</span>
+							<div class="hover_menu">
+								<div class="show_body" style="width: 200px;height: 300px;background-color:white;border: 1px solid #e9ecef ;">
+									<div class="row hover_menu_detail">
+										<span class="col-md-4 ">短裤</span>
+										<span class="col-md-4 ">短裤</span>
+										<span class="col-md-4 ">短裤</span>
+									</div>
+									<div class="row hover_menu_detail">
+										<span class="col-md-4 ">短裤</span>
+										<span class="col-md-4 ">短裤</span>
+										<span class="col-md-4 ">短裤</span>
+									</div>
+									<div class="row hover_menu_detail">
+										<span class="col-md-4 ">短裤</span>
+										<span class="col-md-4 ">短裤</span>
+										<span class="col-md-4 ">短裤</span>
+									</div>
+									<div class="row hover_menu_detail">
+										<span class="col-md-4 ">短裤</span>
+										<span class="col-md-4 ">短裤</span>
+										<span class="col-md-4 ">短裤</span>
+									</div>
+									<div class="row hover_menu_detail">
+										<span class="col-md-4 ">短裤</span>
+										<span class="col-md-4 ">短裤</span>
+										<span class="col-md-4 ">短裤</span>
+									</div>
+								</div>							
+							</div>
+						</div>
+						<span class="col-md-2 cleanPadding">毛衣</span>
+						<span class="col-md-2 cleanPadding">衬衣</span>
+						<span class="col-md-2 cleanPadding">半袖</span>
+						<span class="col-md-2 cleanPadding">外套</span>
+						<span class="col-md-2 cleanPadding">西服</span>
+						<span class="col-md-2 cleanPadding">马夹</span>
+						<span class="col-md-2 cleanPadding">T恤</span>
+					</div>
+					<div class = "row divheight">
+						<span class="col-md-1 typeWidth">食品</span>
+						<span class="col-md-2 cleanPadding">手机海报</span>
+						<span class="col-md-2 cleanPadding">社交媒体</span>
+						<span class="col-md-2 cleanPadding">电商平台</span>
+						<span class="col-md-2 cleanPadding">印刷物料</span>
+						<span class="col-md-2 cleanPadding text-right" onclick="displayMore()" id="markedWords">更多</span>
+						<span id="upOrDown" class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+					</div>
+					<div class = "row divheight" style="display:none" id="moreSelection">
+					
+						<span class="col-md-2 cleanPadding col-md-offset-1">手机海报</span>
+						<span class="col-md-2 cleanPadding">社交媒体</span>
+						<span class="col-md-2 cleanPadding">电商平台</span>
+						<span class="col-md-2 cleanPadding">印刷物料</span>
+					</div>
+					<div class = "row divheight">
+						<span class="col-md-1 typeWidth">生鲜</span>
+						<span class="col-md-2 cleanPadding">手机海报</span>
+						<span class="col-md-2 cleanPadding">社交媒体</span>
+						<span class="col-md-2 cleanPadding">电商平台</span>
+						<span class="col-md-2 cleanPadding">印刷物料</span>
+					</div>
+					<div class = "row divheight">
+						<span class="col-md-1 typeWidth">电子</span>
+						<span class="col-md-2 cleanPadding">手机海报</span>
+						<span class="col-md-2 cleanPadding">社交媒体</span>
+						<span class="col-md-2 cleanPadding">电商平台</span>
+						<span class="col-md-2 cleanPadding">印刷物料</span>
+					</div>
+					<div class = "row divheight">
+						<span class="col-md-1 typeWidth">生活家居</span>
+						<span class="col-md-2 cleanPadding">手机海报</span>
+						<span class="col-md-2 cleanPadding">社交媒体</span>
+						<span class="col-md-2 cleanPadding">电商平台</span>
+						<span class="col-md-2 cleanPadding">印刷物料</span>
+					</div>
+				</div>
+			    <hr style="border:1px solid #CCC">
+				<div id="messageShow" class="container-fluid">
+					<div class="row" style="margin-left: 7px;">
+						<div class="col-md-1 cleanPadding">
+							<span>综合排序</span>
+						</div>
+						<div class="col-md-1 cleanPadding">
+							<span>最新上传</span>
+						</div>
+						<div class="col-md-1 cleanPadding">
+							<span>最多下载</span>
+						</div>
+						<div class="col-md-1 cleanPadding col-md-offset-5">
+							<span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">全部类型 <span class="caret"></span></span>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+							    <li class="active"><a href="#">Action</a></li>
+							    <li><a href="#">Another action</a></li>
+							    <li><a href="#">Something else here</a></li>
+							    <li><a href="#">Separated link</a></li>
+							  </ul>
+						</div>
+						<div class="col-md-1 cleanPadding">
+							<span class="dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">全部颜色 <span class="caret"></span></span>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+							    <li class="active"><a href="#">Action</a></li>
+							    <li><a href="#">Another action</a></li>
+							    <li><a href="#">Something else here</a></li>
+							    <li><a href="#">Separated link</a></li>
+							  </ul>
+						</div>
+						<div class="col-md-1 cleanPadding">
+							<span class="dropdown-toggle" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">全部风格 <span class="caret"></span></span>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+							    <li class="active"><a href="#">Action</a></li>
+							    <li><a href="#">Another action</a></li>
+							    <li><a href="#">Something else here</a></li>
+							    <li><a href="#">Separated link</a></li>
+							  </ul>
+						</div>
+						<div class="col-md-1 cleanPadding">
+							<span class="dropdown-toggle" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">全部版式 <span class="caret"></span></span>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+							    <li class="active"><a href="#">Action</a></li>
+							    <li><a href="#">Another action</a></li>
+							    <li><a href="#">Something else here</a></li>
+							    <li><a href="#">Separated link</a></li>
+							  </ul>
+						</div>
+					</div>
+					<div id="contentShow" class="contentShow"></div>
+				</div>
+				<div id="pageMessage">
+					<nav aria-label="Page navigation" style="text-align: center;">
+					  <ul class="pagination">
+					    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+					    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+						 <li><a href="#">2</a></li>
+						  <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
+					    <li>
+					         <a href="#" aria-label="Next">
+					           <span aria-hidden="true">&raquo;</span>
+					         </a>
+					       </li>
+					  </ul>
+					</nav>
+				</div>
+			     <hr style="border:1px solid #CCC">
+			</div>
+		</div>
+	
+	
+	</body>
+    <script type="text/javascript">
+		$(function(){
+				$('#datetimepicker1').datetimepicker({
+							format: 'YYYY-MM-DD',
+							locale: moment.locale('zh-cn')
+						});
+				$('[data-toggle="tooltip"]').tooltip();
+				
+
+		});
+		function search(){
+			var text = $("#searchContext").val();
+			if (text == ""){
+				return
+			}
+
+			var url = "http://localhost:8080/good/search"
+			var data = {
+				content:text
+			}
+			// console.log(data);
+			// var content ="";
+			// var n = 5;
+			// for(var i=0;i<n;i++){
+			// 			content=content+"<div class='msg'><div></div><div><span>"+"商品名"+"</span></div></div>"
+			// }
+			//$("#contentShow").html(content);
+			 $.ajax({ 
+						type:'post',  
+						url:url, 
+						cache: false,
+						data:data,  //重点必须为一个变量如：data
+						dataType:'json', 
+						success:function(data){      
+						   if(data.code == 200){
+							   var content ="";
+							   var list = data.data;
+							   var n = 5;
+							   for(var i=0;i<list.length;i++){
+							   	content=content+"<div  class='msg'><div></div><div><span>"+list[i].good_name+"</span></div></div>"
+							   }
+							   $("#contentShow").html(content);
+						   }else{
+							   $("#contentShow").html("什么也没有。。。。");
+							   //alert(data.msg)
+						   }
+						},
+						error:function(){ 
+						 alert("请求失败")
+						}
+			 })
+			
+		}
+		function displayMore(){
+			$("#moreSelection").toggle(); 
+			if($("#upOrDown").hasClass("glyphicon-chevron-up")){
+				$("#upOrDown").removeClass("glyphicon-chevron-up");
+				$("#upOrDown").addClass("glyphicon-chevron-down");
+				$("#markedWords").text("更多");
+			}else{
+				$("#markedWords").text("收起");
+				$("#upOrDown").removeClass("glyphicon-chevron-down");
+				$("#upOrDown").addClass("glyphicon-chevron-up");
+			}	
+		}
+		function initsTable(){
+			var url = "http://localhost:8080/good/list";
+			$('#myTable').bootstrapTable({
+			  url: url,
+			  pagination:true,
+			  pageSize:5,
+			  pageNumber:1,
+			  sidePagination : "server",
+			  queryParamsType : '',
+			  smartDisplay: false, 
+			  queryParams: function queryParams(params){
+				var param = {  
+								pageNumber: (params.pageNumber-1)*params.pageSize,    
+								pageSize: params.pageSize,
+								}
+				return param;
+				               
+			  },
+			  columns: [
+				  {
+					  field:'ch',
+					  checkbox:true
+				  },
+				  {
+				align:'center',
+			    field: 'goodId',
+			    title: '商品id'
+			  }, {
+			    field: 'goodName',
+			    title: '商品名称'
+			  },
+			   {
+			    field: 'goodType',
+			    title: '商品类别'
+			  },
+			   {
+			    field: 'goodSale',
+			    title: '商品价格',
+			  },
+			  {
+			    field: 'goodMark',
+			    title: '品牌',
+			  },
+			  {
+			    field: 'createTime',
+			    title: '入库时间',
+			  },
+			  {
+			    title: '编辑',
+				field :'caos',
+				formatter:function(val,row,index){
+					//return "<button onclick='opens(\""+row.id+"','"+index+"\')\">自定义</button>";
+				     "<button class='btn' onclick=\"opens("+index+",'"+row.update+"')\">自定义</button>";
+					 //字符串拼接html注意事项,如果有js函数调用,且函数参数为字符串,需要手动添加'',标识参数为字符串
+					return "<button class ='btn btn-danger' type='button' onclick=\"opens('"+index+"','"+row.update+"')\">s输出val</button>"+'<button type="button" class ="btn btn-danger" onclick="outdata(\''+row.id+'\');">测试</button>';
+				    
+				}
+			  }]
+			});
+		}
+		function chevron_toggle(){
+		    $("#collapseParent").find("span").toggleClass("glyphicon-chevron-up");
+		    $("#collapseParent").find("span").toggleClass("glyphicon-chevron-down");
+		}
+		function delAll(){
+			var rows = $("#myTable").bootstrapTable('getSelections');
+			if(rows.length == 0){
+				alert("请选择要删除的条目！");
+				return;
+			}
+			if (!confirm("是否确认删除？"))
+			     return;
+			var ids = new Array();
+			$(rows).each(function(){
+				ids.push(this.id)
+			})
+			console.log(ids)
+		}
+		
+		function outdata(row){
+			console.log(row)
+		}
+		function opens(index,row){
+			if(row == "天津"){
+				
+				console.log("ture"+row)
+				}else{
+				console.log("false"+row)
+				}
+				alert(row)
+			//console.log(index,row)
+		}
+	    function addGood(){
+			  var targetUrl = $("#addForm").attr("action");
+			  console.log(targetUrl)
+			  var data = $("#addForm").serialize();     
+			   $.ajax({ 
+				type:'post',  
+				url:targetUrl, 
+				cache: false,
+				data:data,  //重点必须为一个变量如：data
+				dataType:'json', 
+				success:function(data){      
+				   alert(data.msg)
+				},
+				error:function(){ 
+				 alert("请求失败")
+				}
+			   })
+		}
+		function searchByNameOrMark(){
+			var context = $(this).val();
+			console.log(context);
+		}
+	</script>
+	<style type="text/css">
+		.spanBottom{
+			padding-bottom:5px;
+		}
+		input[type="radio"] {
+					width: 20px;
+					height: 20px;
+					opacity: 0;
+				}
+		label[title] {
+					position: absolute;
+					left: 15px;
+					top: 8px;
+					width: 20px;
+					height: 20px;
+					border-radius: 50%;
+					border: 1px solid #999;
+		　　　　　　  cursor: pointer;
+			  }
+		
+		 input:checked+label { 
+		            background-color: #fe6d32;
+		            border: 1px solid #fe6d32;
+		        }
+		input:checked+label::after {
+		            position: absolute;
+		            content: "";
+		            width: 5px;
+		            height: 10px;
+		            top: 3px;
+		            left: 6px;
+		            border: 2px solid #fff;
+		            border-top: none;
+		            border-left: none;
+		            transform: rotate(45deg);
+								  }
+		.contentShow{
+			margin-top: 20px;
+		}
+		.msg{
+			width: 24%;
+			height: 250px;
+			display: inline-block;
+            border: 1px black solid;
+			background-color: red;
+			margin-left: 3px;
+			margin-top: 20px;
+		}
+		.divheight{
+			    height: 31px;
+			    display: flex;
+			    align-items: center;
+			    padding-left: 0px;
+			    flex: 1 1 auto;
+				margin-top: 10px;
+		}
+		span:hover{
+			color: #2254f4;
+		}
+		.cleanPadding{
+			padding:0 0;
+		}
+		#camare{
+			position: absolute;
+			top: 17px;
+			left: 640px;
+		}
+		.carousel-inner img {
+		     margin-left: 35%;
+		}
+		#bodys{
+			height: 100%;
+			border: 1px solid #CCC;
+			padding-top: 10px;
+			padding-left: 10px;
+			padding-bottom: 300px;
+		}
+		.nav-pills>li>a{
+			background-color:black;
+			color: white;
+		}
+		#icon{
+			margin-top: 10px;
+			margin-left: 20px;
+			font-size: 18px;
+		}
+		#topNav{
+			    margin-left: 0;
+			    margin-right: 0;
+			    border: 0;
+			    -webkit-box-shadow: none;
+			    box-shadow: none;
+			    border-radius: 0;
+			    padding-top:2px;
+			    padding-left: 0;
+			    padding-right: 0;
+			    min-height: 45px;
+			   
+			    background: #438eb9;
+		}
+		#menuMes.container-fluid{
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+		#menuLeft{
+			margin-top: 1.5%;
+			margin-left: 1%;
+		}
+		.tab-content{
+			width: 80%;
+		}
+		#toop{
+			margin-top:1%;
+			padding-left: 0px;
+		}
+		.center-block {
+		  display: block;
+		  margin-left: auto;
+		  margin-right: auto;
+		}
+		.clearfix:after{
+		         content: "";
+		                   /*转换为一个块元素*/
+		         display: block;
+		                    /*清除两侧的浮动*/
+		         clear: both;
+				 height: 46px;
+		}
+		.typeWidth{
+			width: 120px;
+			font-weight: 600;
+		}
+	
+	
+		
+	</style>
+</html>

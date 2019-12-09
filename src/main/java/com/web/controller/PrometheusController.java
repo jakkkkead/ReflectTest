@@ -1,8 +1,13 @@
 package com.web.controller;
 
+import com.web.annotation.ApiCounter;
 import io.micrometer.core.annotation.Timed;
-import io.micrometer.core.instrument.*;
-import io.prometheus.client.Summary;
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.DistributionSummary;
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.Timer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +30,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @RestController
 @RequestMapping("pro")
 public class PrometheusController {
+    private static Logger logger = LoggerFactory.getLogger(PrometheusController.class);
     /**
      * 注册表
      */
@@ -82,13 +88,13 @@ public class PrometheusController {
     static List list = new ArrayList();
     @Timed(value = "time.total")
     @GetMapping("/total/req")
-    public String testRequestTotal(){
+    @ApiCounter
+    public String testRequestTotal(int sum){
         long t1 = System.currentTimeMillis();
         //开始时间
         Timer.Sample sample = Timer.start(registry);
         //gauge自动追踪list的长度
         registry.gaugeCollectionSize("guage.list",null,list);
-
         list.add(1);
         registry.gauge("gauge_test",atomicInteger);
         Counter c = Counter.builder("").description("").tags("inline","ss").register(registry);
@@ -118,4 +124,7 @@ public class PrometheusController {
         System.out.println("t2-t1:"+(t2-t1)/1000);
         return "请求成功，请求数为："+i;
     }
+
+
+
 }
