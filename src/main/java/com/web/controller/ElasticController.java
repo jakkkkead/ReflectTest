@@ -1,5 +1,6 @@
 package com.web.controller;
 
+import com.web.bean.RestResponse;
 import com.web.service.GoodDataSynService;
 import com.web.util.ElasticClientUtil;
 import org.elasticsearch.action.index.IndexRequest;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -31,9 +33,9 @@ public class ElasticController {
         System.out.println(indexResponse);
     }
     @GetMapping("syn")
-    public void synData() throws IOException {
-        String start = "2019-01-01 00:00:00";
-        String end = "2019-12-12 00:00:00";
+    @ResponseBody
+    public RestResponse synData(String start, String end) throws IOException {
         boolean flag = goodDataSynService.synGoodData(start, end);
+        return new RestResponse().success("同步成功");
     }
 }

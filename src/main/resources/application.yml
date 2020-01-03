@@ -35,8 +35,10 @@ spring:
   redis:
     host: 192.168.88.128
     port: 6379
+    password: 123456
 redisson:
   address: redis://192.168.88.128:6379
+  password: 123456
 mybatis:
   mapper-locations: classpath:mapping/*.xml
 management:

@@ -10,8 +10,10 @@ import java.util.Map;
 
 @Mapper
 public interface GoodDao {
-    public int add(Good good);
-    public List<Good> listGood(PageInfo pageInfo);
-    public int getTotal();
-    public List<Map<String,Object>> getDataByDate(@Param("start") String start, @Param("end")String end);
+     int add(Good good);
+     List<Good> listGood(PageInfo pageInfo);
+     int getTotal();
+     List<Map<String,Object>> getDataByDate(@Param("start") String start, @Param("end")String end);
+     int batchInsert(@Param("list")List<Good> list);
+     List<Map<String,String>> getTypeList();
 }

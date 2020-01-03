@@ -1,8 +1,5 @@
 package com.web.config;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
@@ -11,9 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.GenericToStringSerializer;
-import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configurable
@@ -23,6 +18,8 @@ public class RedisConfig {
      */
     @Value("${redisson.address}")
     private String addressUrl;
+    @Value("${redisson.password}")
+    private String password;
     @Bean
     @SuppressWarnings("all")
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
@@ -51,6 +48,7 @@ public class RedisConfig {
         RedissonClient redisson = null;
         Config config = new Config();
         config.useSingleServer()
+                .setPassword(password)
                 .setAddress(addressUrl);
         redisson = Redisson.create(config);
         return redisson;

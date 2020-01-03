@@ -2,6 +2,7 @@ package com.web.service;
 
 import com.web.bean.Good;
 import com.web.bean.PageInfo;
+import com.web.bean.SearchRequestBody;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,8 +15,9 @@ public interface GoodService {
 
     /**
      * 根据 商品名称和品牌查询
-     * @param context
+     * @param param
      * @return
      */
-    public List<Map<String, Object>> searchByNameOrMark(String context) throws IOException;
+    public PageInfo searchByNameOrMark(SearchRequestBody param) throws IOException;
+    public Map<String, Map<String,String>> getTypeList();
 }

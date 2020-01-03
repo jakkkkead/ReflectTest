@@ -9,6 +9,7 @@ import java.util.List;
 public class PageInfo<T> {
     private int pageNumber;
     private int pageSize;
+    private Long total;
     private List<T> list;
     public PageInfo(){}
     public PageInfo (List<T> data){

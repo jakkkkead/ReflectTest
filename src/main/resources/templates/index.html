@@ -15,6 +15,9 @@
 		<script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
 		<script src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 		<link rel="stylesheet" href="static/css/index.css" />
+<!--		<link rel="stylesheet" href="index.css" />-->
+<!--		<script src="index.js"></script>-->
+		<script src="static/js/index.js"></script>
 	</head>
 	<body>
 		<div class="clearfix">
@@ -144,7 +147,7 @@
 					  <div class="form-group">
 					    <label for="inputPassword3" class="col-sm-3 control-label">商品价格</label>
 					    <div class="col-sm-4">
-					      <input type="text" name="goodSale" class="form-control" id="inputPassword3" placeholder="商品类别">
+					      <input type="text" name="goodSale" class="form-control" id="inputPassword4" placeholder="商品价格">
 					    </div>
 					  </div>
 					  <div class="form-group">
@@ -221,50 +224,6 @@
 			</div>
 			
 			<div role="tabpanel" class="tab-pane " id="profile">
-				<!-- <div id="staticTable" >
-					<table class="table table-bordered table-hover table-striped">
-					   <thead>
-						   <tr>
-							   <th><input type="checkbox"/></th>
-							   <th>Domain</th>
-							   <th>Price</th>
-							   <th>	Clicks</th>
-							   <th> Update</th>
-							   <th>Status</th>
-							   <th></th>
-						   </tr>
-					   </thead>
-					   <tbody>
-					   	  <tr>
-							  <td><input type="checkbox"/></td>
-							  <td>x</td>
-							  <td>x</td>
-							  <td>x</td>
-							  <td>x</td>
-							  <td>x</td>
-							  <td>xxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
-						  </tr>
-						  <tr>
-						  							  <td><input type="checkbox"/></td>
-						  							  <td>x</td>
-						  							  <td>x</td>
-						  							  <td>x</td>
-						  							  <td>x</td>
-						  							  <td>x</td>
-						  							  <td>xxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
-						  </tr>
-						  <tr>
-						  							  <td><input type="checkbox"/></td>
-						  							  <td>x</td>
-						  							  <td>x</td>
-						  							  <td>x</td>
-						  							  <td>x</td>
-						  							  <td>x</td>
-						  							  <td>xxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
-						  </tr>
-					   </tbody>
-					</table>
-				</div> -->
 			    <div>
 					<button type="button" onclick="initsTable()" class="btn btn-info">bootstrap插件表格</button>
 					<button type="button" onclick="delAll()" class="btn btn-danger">
@@ -409,116 +368,117 @@
 								</div>							
 							</div>
 						</div>
-						<span class="col-md-2 cleanPadding">毛衣</span>
-						<span class="col-md-2 cleanPadding">衬衣</span>
-						<span class="col-md-2 cleanPadding">半袖</span>
-						<span class="col-md-2 cleanPadding">外套</span>
-						<span class="col-md-2 cleanPadding">西服</span>
-						<span class="col-md-2 cleanPadding">马夹</span>
-						<span class="col-md-2 cleanPadding">T恤</span>
-					</div>
-					<div class = "row divheight">
-						<span class="col-md-1 typeWidth">食品</span>
-						<span class="col-md-2 cleanPadding">手机海报</span>
-						<span class="col-md-2 cleanPadding">社交媒体</span>
-						<span class="col-md-2 cleanPadding">电商平台</span>
-						<span class="col-md-2 cleanPadding">印刷物料</span>
-						<span class="col-md-2 cleanPadding text-right" onclick="displayMore()" id="markedWords">更多</span>
+						<a class="col-md-2 cleanPadding typeSelect" >毛衣</a>
+						<a class="col-md-2 cleanPadding typeSelect" >衬衣</a>
+						<a class="col-md-2 cleanPadding typeSelect">半袖</a>
+						<a class="col-md-2 cleanPadding typeSelect">外套</a>
+						<a class="col-md-2 cleanPadding typeSelect">西服</a>
+						<a class="col-md-2 cleanPadding typeSelect"><span>马夹</span></a>
+						<a class="col-md-2 cleanPadding typeSelect"><span>T恤</span></a>
+						<span class="col-md-2 col-md-offset-2 cleanPadding text-right" onclick="displayMore()" id="markedWords">更多</span>
 						<span id="upOrDown" class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
 					</div>
 					<div class = "row divheight" style="display:none" id="moreSelection">
 					
-						<span class="col-md-2 cleanPadding col-md-offset-1">手机海报</span>
-						<span class="col-md-2 cleanPadding">社交媒体</span>
-						<span class="col-md-2 cleanPadding">电商平台</span>
-						<span class="col-md-2 cleanPadding">印刷物料</span>
+						<span class="col-md-2 cleanPadding col-md-offset-1">焙烤食品</span>
+						<span class="col-md-2 cleanPadding">肉及肉制品</span>
+						<span class="col-md-2 cleanPadding">水产品及其制品</span>
+						<span class="col-md-2 cleanPadding">蛋及蛋制品</span>
 					</div>
 					<div class = "row divheight">
+						<span class="col-md-1 typeWidth">食品</span>
+						<a class="col-md-2 cleanPadding typeSelect"><span>乳与乳制品</span></a>
+						<a class="col-md-2 cleanPadding typeSelect"><span>冷冻饮品</span></a>
+						<a class="col-md-2 cleanPadding typeSelect"><span>酒类</span></a>
+						<a class="col-md-2 cleanPadding typeSelect"><span>粮食制品</span></a>
+						<span class="col-md-2 cleanPadding typeSelect">焙烤食品</span>
+						<span class="col-md-2 cleanPadding typeSelect">水产品</span>
+						<span class="col-md-2 cleanPadding typeSelect">蛋及蛋制品</span>
+					</div>
+					
+					<div class = "row divheight">
 						<span class="col-md-1 typeWidth">生鲜</span>
-						<span class="col-md-2 cleanPadding">手机海报</span>
-						<span class="col-md-2 cleanPadding">社交媒体</span>
-						<span class="col-md-2 cleanPadding">电商平台</span>
-						<span class="col-md-2 cleanPadding">印刷物料</span>
+						<span class="col-md-2 cleanPadding typeSelect">水果</span>
+						<span class="col-md-2 cleanPadding typeSelect">蔬菜</span>
+						<span class="col-md-2 cleanPadding typeSelect">肉品</span>
+						<span class="col-md-2 cleanPadding typeSelect">干货</span>
 					</div>
 					<div class = "row divheight">
 						<span class="col-md-1 typeWidth">电子</span>
-						<span class="col-md-2 cleanPadding">手机海报</span>
-						<span class="col-md-2 cleanPadding">社交媒体</span>
-						<span class="col-md-2 cleanPadding">电商平台</span>
-						<span class="col-md-2 cleanPadding">印刷物料</span>
+						<span class="col-md-2 cleanPadding typeSelect" goodType="4" detailType="2">手机</span>
+						<span class="col-md-2 cleanPadding typeSelect" goodType="4" detailType="3">摄录机</span>
+						<span class="col-md-2 cleanPadding typeSelect" goodType="4" detailType="1">电脑</span>
+						<span class="col-md-2 cleanPadding typeSelect" goodType="4" detailType="3">手表</span>
+						<span class="col-md-2 cleanPadding typeSelect" goodType="4" detailType="3">录像机</span>
+						<span class="col-md-2 cleanPadding typeSelect" goodType="4" detailType="3">激光唱机</span>
 					</div>
 					<div class = "row divheight">
 						<span class="col-md-1 typeWidth">生活家居</span>
-						<span class="col-md-2 cleanPadding">手机海报</span>
-						<span class="col-md-2 cleanPadding">社交媒体</span>
-						<span class="col-md-2 cleanPadding">电商平台</span>
-						<span class="col-md-2 cleanPadding">印刷物料</span>
+						<span class="col-md-2 cleanPadding typeSelect" goodType="5" detailType="3" >电视机</span>
+						<span class="col-md-2 cleanPadding typeSelect" goodType="5" detailType="6" >电风扇</span>
+						<span class="col-md-2 cleanPadding typeSelect" goodType="5" detailType="5" >空调</span>
+						<span class="col-md-2 cleanPadding typeSelect" goodType="5" detailType="4" >洗碗机</span>
+						<span class="col-md-2 cleanPadding typeSelect" goodType="5" detailType="7" >台灯</span>
 					</div>
 				</div>
 			    <hr style="border:1px solid #CCC">
 				<div id="messageShow" class="container-fluid">
 					<div class="row" style="margin-left: 7px;">
 						<div class="col-md-1 cleanPadding">
-							<span>综合排序</span>
+							<a onclick="orderGood(1)">综合排序</a>
+							<i id="compositeOrderTop" class="angle_top"></i>
+							<i id="compositeOrderbottom" class="angle_bottom"></i>
 						</div>
 						<div class="col-md-1 cleanPadding">
-							<span>最新上传</span>
+							<a onclick="orderGood(2)">销量排名</a>
+							<i id="sumOrderTop" class="angle_top"></i>
+							<i id="sumOrderbottom" class="angle_bottom"></i>
 						</div>
 						<div class="col-md-1 cleanPadding">
-							<span>最多下载</span>
+							<a onclick="orderGood(3)">价格排名</a>
+							<i id="priceOrderTop" class="angle_top"></i>
+							<i id="priceOrderbottom" class="angle_bottom"></i>
 						</div>
-						<div class="col-md-1 cleanPadding col-md-offset-5">
-							<span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">全部类型 <span class="caret"></span></span>
-							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-							    <li class="active"><a href="#">Action</a></li>
-							    <li><a href="#">Another action</a></li>
-							    <li><a href="#">Something else here</a></li>
-							    <li><a href="#">Separated link</a></li>
+						<div class="col-md-1 cleanPadding col-md-offset-7">
+							<span class="dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span id="priceRange">价格范围</span><span class="caret"></span></span>
+							<ul class="dropdown-menu" aria-labelledby="priceRange">
+							    <li><a class="priceRange" href="#">0~100</a></li>
+							    <li><a class="priceRange" href="#">100~300</li>
+							    <li><a class="priceRange" href="#">300~600</a></li>
+							    <li><a class="priceRange" href="#">600以上</a></li>
 							  </ul>
 						</div>
 						<div class="col-md-1 cleanPadding">
-							<span class="dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">全部颜色 <span class="caret"></span></span>
-							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-							    <li class="active"><a href="#">Action</a></li>
-							    <li><a href="#">Another action</a></li>
-							    <li><a href="#">Something else here</a></li>
-							    <li><a href="#">Separated link</a></li>
-							  </ul>
-						</div>
-						<div class="col-md-1 cleanPadding">
-							<span class="dropdown-toggle" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">全部风格 <span class="caret"></span></span>
-							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-							    <li class="active"><a href="#">Action</a></li>
-							    <li><a href="#">Another action</a></li>
-							    <li><a href="#">Something else here</a></li>
-							    <li><a href="#">Separated link</a></li>
-							  </ul>
-						</div>
-						<div class="col-md-1 cleanPadding">
-							<span class="dropdown-toggle" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">全部版式 <span class="caret"></span></span>
-							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-							    <li class="active"><a href="#">Action</a></li>
-							    <li><a href="#">Another action</a></li>
-							    <li><a href="#">Something else here</a></li>
-							    <li><a href="#">Separated link</a></li>
+							<span class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span id="markSelectror">品牌</span> <span class="caret"></span></span>
+							<ul class="dropdown-menu" aria-labelledby="markSelectror">
+							    <li><a class="markSelect" href="#">森马</a></li>
+							    <li><a class="markSelect" href="#">屈臣氏</a></li>
+							    <li><a class="markSelect" href="#">法式</a></li>
+							    <li><a class="markSelect" href="#">盼盼</a></li>
+								<li><a class="markSelect" href="#">其他</a></li>
 							  </ul>
 						</div>
 					</div>
 					<div id="contentShow" class="contentShow"></div>
 				</div>
-				<div id="pageMessage">
+				<div id="pageMessage" style="display: none;">
 					<nav aria-label="Page navigation" style="text-align: center;">
-					  <ul class="pagination">
+					  <!-- <ul class="pagination">
 					    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-					    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-						 <li><a href="#">2</a></li>
-						  <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
+					    <li ><a href="#">1 </a></li>
+						<li ><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
 					    <li>
-					         <a href="#" aria-label="Next">
+					        <a href="#" aria-label="Next">
 					           <span aria-hidden="true">&raquo;</span>
-					         </a>
-					       </li>
-					  </ul>
+					        </a>
+					    </li>
+					
+					  </ul> -->
+					  <ul class="pager">
+					      <li><a  onclick="toPre()">上一页</a></li>
+					      <li><a onclick="toNext()">下一页</a></li>
+					    </ul>
 					</nav>
 				</div>
 			     <hr style="border:1px solid #CCC">
@@ -528,57 +488,78 @@
 	
 	</body>
     <script type="text/javascript">
+		var param = {
+			type :"",
+			content:"",
+			orderByPrice:"",
+			orderByNum:"",
+			orderBycomposite:"",
+			detailType:0,
+			goodType:0,
+			pageIndex:0,
+			pageSize:20,
+			total:0
+		}
 		$(function(){
 				$('#datetimepicker1').datetimepicker({
 							format: 'YYYY-MM-DD',
 							locale: moment.locale('zh-cn')
 						});
 				$('[data-toggle="tooltip"]').tooltip();
-				
-
+				$(".typeSelect").click(function (){
+					// $(this).siblings().css({"background":"","color":""})
+					$(".typeSelect").css({"background":"","color":""})
+					$(this).css({"background":"#f0f6ff","color":"#2254f4"})
+					param.detailType = $(this).attr("detailType")
+					param.goodType = $(this).attr("goodType")
+					//清空搜索框
+					param.content=""
+					doSearch()
+				})
 		});
+		function orderGood(type){
+			if(type == 1){
+			   if(param.orderBycomposite == "" || param.orderBycomposite == "desc"){
+				   param.orderBycomposite = "asc"
+				   $("#compositeOrderTop").css("border-color","transparent transparent #5e5e5e");
+				   $("#compositeOrderbottom").css("border-color","transparent transparent #2254F4");
+			   }else{
+					param.orderBycomposite = "desc";
+					$("#compositeOrderTop").css("border-color","transparent transparent #2254F4");
+					$("#compositeOrderbottom").css("border-color","transparent transparent #5e5e5e");
+				}
+			}else if(type ==2){
+				if(param.orderByNum == "" || param.orderByNum == "desc"){
+					param.orderByNum = "asc";
+					$("#sumOrderTop").css("border-color","transparent transparent #5e5e5e");
+					$("#sumOrderbottom").css("border-color","transparent transparent #2254F4");
+				}else{
+					param.orderByNum = "desc";
+					$("#sumOrderTop").css("border-color","transparent transparent #2254F4");
+					$("#sumOrderbottom").css("border-color","transparent transparent #5e5e5e");
+				}
+			}else{
+				if(param.orderByPrice == "" || param.orderByPrice == "ASC"){
+					param.orderByPrice = "DESC";
+					$("#priceOrderTop").css("border-color","transparent transparent #5e5e5e");
+					$("#priceOrderbottom").css("border-color","transparent transparent #2254F4");
+				}else{
+					param.orderByPrice = "ASC";
+					$("#priceOrderTop").css("border-color","transparent transparent #2254F4");
+					$("#priceOrderbottom").css("border-color","transparent transparent #5e5e5e");
+				}
+			}
+			doSearch()
+		}
 		function search(){
 			var text = $("#searchContext").val();
 			if (text == ""){
 				return
 			}
-
-			var url = "http://localhost:8080/good/search"
-			var data = {
-				content:text
-			}
-			// console.log(data);
-			// var content ="";
-			// var n = 5;
-			// for(var i=0;i<n;i++){
-			// 			content=content+"<div class='msg'><div></div><div><span>"+"商品名"+"</span></div></div>"
-			// }
-			//$("#contentShow").html(content);
-			 $.ajax({ 
-						type:'post',  
-						url:url, 
-						cache: false,
-						data:data,  //重点必须为一个变量如：data
-						dataType:'json', 
-						success:function(data){      
-						   if(data.code == 200){
-							   var content ="";
-							   var list = data.data;
-							   var n = 5;
-							   for(var i=0;i<list.length;i++){
-							   	content=content+"<div  class='msg'><div></div><div><span>"+list[i].good_name+"</span></div></div>"
-							   }
-							   $("#contentShow").html(content);
-						   }else{
-							   $("#contentShow").html("什么也没有。。。。");
-							   //alert(data.msg)
-						   }
-						},
-						error:function(){ 
-						 alert("请求失败")
-						}
-			 })
-			
+			param.content = text
+			param.detailType= 0
+			param.goodType = 0
+			doSearch()
 		}
 		function displayMore(){
 			$("#moreSelection").toggle(); 
@@ -670,6 +651,36 @@
 			})
 			console.log(ids)
 		}
+	     function doSearch (){
+			var url = "http://localhost:8080/good/search"
+			var data = param
+			 $.ajax({ 
+						type:'post',  
+						url:url, 
+						cache: false,
+						data:data,  //重点必须为一个变量如：data
+						dataType:'json', 
+						success:function(data){      
+						   if(data.code == 200){
+							   param.total = data.data.total
+							   var content ="";
+							   var list = data.data.list;
+							   for(var i=0;i<list.length;i++){
+							   	   content=content+"<div class='msg'><div><img width='100%'src='"+list[i].img_url+"' title='"+list[i].good_name+"' /></div><div class='centerText'><span>"+list[i].good_name+"</span></div><div class='price-normal'><span>&yen;"+list[i].good_sale+"</span></div></div>"
+							   }
+							   $("#contentShow").html(content);
+							   $("#pageMessage").show()
+						   }else{
+							   $("#contentShow").html("什么也没有。。。。");
+							   $("#pageMessage").hide()
+							   //alert(data.msg)
+						   }
+						},
+						error:function(){ 
+						 alert("请求失败")
+						}
+			 })
+			 }
 		
 		function outdata(row){
 			console.log(row)
@@ -748,12 +759,11 @@
 		}
 		.msg{
 			width: 24%;
-			height: 250px;
+			height: 230px;
 			display: inline-block;
-            border: 1px black solid;
-			background-color: red;
 			margin-left: 3px;
 			margin-top: 20px;
+			text-align: center;
 		}
 		.divheight{
 			    height: 31px;
@@ -762,6 +772,9 @@
 			    padding-left: 0px;
 			    flex: 1 1 auto;
 				margin-top: 10px;
+		}
+		a{
+			color: #000000;
 		}
 		span:hover{
 			color: #2254f4;
@@ -836,11 +849,8 @@
 				 height: 46px;
 		}
 		.typeWidth{
-			width: 120px;
+			width: 90px;
 			font-weight: 600;
-		}
-	
-	
-		
+		}	
 	</style>
 </html>

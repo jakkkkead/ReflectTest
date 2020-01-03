@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Good {
+    private String imgUrl;
     private String goodName;
     private Integer goodId;
     private Integer goodType;
@@ -18,4 +19,9 @@ public class Good {
     private String goodMark;
     private String createTime;
     private Integer goodTenantId;
+    /**
+     * 备注
+     */
+    private String remark;
+    private int detailType;
 }
